@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class EX1Cylinder {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 输入圆柱体的半径和长度
+        System.out.print("Enter the radius and length of a cylinder: ");
+        double radius = scanner.nextDouble();
+        double length = scanner.nextDouble();
+
+        // 计算底面积
+        double area = Math.PI * Math.pow(radius, 2);
+
+        // 计算体积
+        double volume = area * length;
+
+        // 输出结果
+        System.out.printf("The area is %.4f%n", area);
+        System.out.printf("The volume is %.1f%n", volume);
+
+    }
+    }
+
+
