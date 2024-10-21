@@ -1,0 +1,21 @@
+public class Solution {
+
+    // 方法：计算 i1 到 i2（包含）之间整数的和
+    public static int sum(int i1, int i2) {
+        int sum = 0; // 初始化 sum 变量
+
+        // 从 i1 循环到 i2，并累加 sum
+        for (int i = i1; i <= i2; i++) {
+            sum += i; // 将 i 加到 sum 中
+        }
+
+        return sum; // 返回计算得到的和
+    }
+
+    public static void main(String[] args) {
+        // 测试用例
+        System.out.println("Sum from 1 to 10 is " + sum(1, 10));   // 应输出 55
+        System.out.println("Sum from 20 to 30 is " + sum(20, 30)); // 应输出 275
+        System.out.println("Sum from 35 to 45 is " + sum(35, 45)); // 应输出 405
+    }
+}
