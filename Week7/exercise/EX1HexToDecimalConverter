@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class EX1HexToDecimalConverter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 提示用户输入一个十六进制数字
+        System.out.print("Enter a hexadecimal number (e.g., AB8C): ");
+        String hexNumber = scanner.nextLine();
+
+        // 将十六进制数字转换为十进制
+        int decimalValue = hexToDecimal(hexNumber);
+
+        // 显示结果
+        System.out.printf("The decimal value of hexadecimal %s is: %d%n", hexNumber, decimalValue);
+    }
+
+    // 转换十六进制为十进制的方法
+    public static int hexToDecimal(String hex) {
+        int decimalValue = 0; // 初始化十进制值
+        int length = hex.length(); // 获取十六进制字符串的长度
+
+        // 遍历十六进制字符串中的每个字符
+        for (int i = 0; i < length; i++) {
+            char hexChar = hex.charAt(i); // 获取当前字符
+            int hexDigit = hexCharToDecimal(hexChar); // 将十六进制字符转换为十进制数字
+
+            // 根据字符的位置计算对应的十进制值
+            decimalValue += hexDigit * Math.pow(16, length - 1 - i);
+        }
+
+        return decimalValue; // 返回最终的十进制值
+    }
+
+    // 辅助方法：将单个十六进制字符转换为十进制
+    private static int hexCharToDecimal(char hexChar) {
+        if (hexChar >= '0' && hexChar <= '9') {
+            return hexChar - '0'; // 将 '0'-'9' 转换为 0-9
+        } else if (hexChar >= 'A' && hexChar <= 'F') {
+            return hexChar - 'A' + 10; // 将 'A'-'F' 转换为 10-15
+        } else if (hexChar >= 'a' && hexChar <= 'f') {
+            return hexChar - 'a' + 10; // 将 'a'-'f' 转换为 10-15
+        } else {
+            throw new IllegalArgumentException("Invalid hexadecimal character: " + hexChar); // 抛出异常
+        }
+    }
+}
